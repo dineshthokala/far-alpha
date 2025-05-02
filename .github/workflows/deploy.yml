@@ -29,5 +29,6 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > /tmp/Dinesh-challenge-vm_key.pem
         chmod 600 /tmp/Dinesh-challenge-vm_key.pem
-        ssh -i /tmp/Dinesh-challenge-vm_key.pem -o StrictHostKeyChecking=no $USER@$HOST "pm2 stop all || true && pm2 start index.js --name far-alpha"
+        scp -i /tmp/Dinesh-challenge-vm_key.pem -o StrictHostKeyChecking=no -r ./* $USER@$HOST:/home/$USER/far-alpha
+        ssh -i /tmp/Dinesh-challenge-vm_key.pem -o StrictHostKeyChecking=no $USER@$HOST "cd /home/$USER/far-alpha && npm install && pm2 stop all || true && pm2 start index.js --name far-alpha"
         rm /tmp/Dinesh-challenge-vm_key.pem
