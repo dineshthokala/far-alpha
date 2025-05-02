@@ -27,7 +27,7 @@ jobs:
         USER: ${{ secrets.VM_USER }}
         PRIVATE_KEY: ${{ secrets.VM_PRIVATE_KEY }}
       run: |
-        echo "$PRIVATE_KEY" > private_key.pem
-        chmod 600 private_key.pem
-        ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST "pm2 stop all || true && pm2 start index.js --name far-alpha"
-        rm private_key.pem
+        echo "$PRIVATE_KEY" > C:/Users/dnshm/Desktop/Projects/far-alpha/Dinesh-challenge-vm_key.pem
+        chmod 600 C:/Users/dnshm/Desktop/Projects/far-alpha/Dinesh-challenge-vm_key.pem
+        ssh -i C:/Users/dnshm/Desktop/Projects/far-alpha/Dinesh-challenge-vm_key.pem -o StrictHostKeyChecking=no $USER@$HOST "pm2 stop all || true && pm2 start index.js --name far-alpha"
+        rm C:/Users/dnshm/Desktop/Projects/far-alpha/Dinesh-challenge-vm_key.pem
